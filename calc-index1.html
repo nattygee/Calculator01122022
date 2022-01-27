@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc 1 2022</title>
+
+    <!--styles-->
+    <link rel="stylesheet" href="styles/calc1-style.css">
+    <!--scripts-->
+    <script src="scripts/calc1-scripts.js"></script>
+
+</head>
+<body>
+    <div class="page-container">
+        <section style="display: none;" class="description-left">
+            <div class="container">
+                <img src="" alt="">
+                <h1>Slick Calculatrice</h1>
+                <h4>Do maths in style with Slick Calc</h4>
+                <p>This is the one with the style. If you miss 80's maths then you're in the right place. Inspired by Brother Industries and also Web 3.0, Slick Calc is an attempt at merging the two stylistically <em>and</em> practically</p>
+            </div>
+        </section>
+
+        <section class="calcContainer">
+            <div class="num-screen-container"><input type="text" class="num-screen" placeholder="Enter a number" id="text-field"></div>
+            <table class="calcTable">
+                
+                <!--row 1-->
+                <tr id="calc-top-row">
+                    <td><input type="button" value="AC" class="special-btn"></td>
+                    <td><input type="button" value="±" class="special-btn"></td>
+                    <td><input type="button" value="%" class="special-btn"></td>
+                    <td><input type="button" value="÷" class="function-btn"></td>
+                </tr>
+                
+                <!--row 2-->
+                <tr>
+                    <td><input type="button" value="7" class="num-btn" onclick="showValue('7')" id="sevenKey"></td>
+                    <td><input type="button" value="8" class="num-btn" onclick="showValue('8')" id="eightKey"></td>
+                    <td><input type="button" value="9" class="num-btn" onclick="showValue('9')" id="nineKey"></td>
+                    <td><input type="button" value="*" class="function-btn"></td>
+                </tr>
+                
+                <!--row 3-->
+                <tr>
+                    <td><input type="button" value="4" class="num-btn" onclick="showValue('4')" id="fourKey"></td>
+                    <td><input type="button" value="5" class="num-btn" onclick="showValue('5')" id="fiveKey"></td>
+                    <td><input type="button" value="6" class="num-btn" onclick="showValue('6')" id="sixKey"></td>
+                    <td><input type="button" value="–" class="function-btn"></td>
+                </tr>
+                
+                <!--row 4-->
+                <tr>
+                    <td><input type="button" value="1" class="num-btn" onclick="showValue('1')" id="oneKey"></td>
+                    <td><input type="button" value="2" class="num-btn" onclick="showValue('2')" id="oneKey"></td>
+                    <td><input type="button" value="3" class="num-btn" onclick="showValue('3')" id="threeKey"></td>
+                    <td rowspan="2"><input type="button" value="=" class="function-btn-lrg"></td>
+                    <!--<td><input type="button" value="+" class="function-btn"></td>-->
+                </tr>
+                
+                <!--row 4-->
+                <tr>
+                    <td colspan="2"><input type="button" value="0" class="num-btn-med"></td>
+                    <td><input type="button" value="." class="num-btn"></td>
+                    
+                </tr>
+
+                <!--<tr>
+                    <td rowspan="2"><input type="text" name="" id="" value="hellow"></td>
+                </tr>-->
+                
+            </table>
+        </section>
+    </div>
+</body>
+</html>
