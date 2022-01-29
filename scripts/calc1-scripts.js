@@ -25,6 +25,8 @@ function clicksy(e) {
         document.getElementById("twoKey").click();
     } else if (e.key === "3") {
         document.getElementById("threeKey").click();
+    } else if (e.key === "Backspace") {
+        document.getElementById("clearBtn").click();
     }
 }
 
@@ -45,18 +47,12 @@ function calcAlert(x) {
     document.getElementById("text-field").value += val;
 }*/
 
-
-
-
 const thisField = document.querySelector('.testField');
 
 //accidentally made this log every key that's pressed - crazy
 window.addEventListener('keydown', x => {
     console.log(x);
 })
-
-
-
 
 function showValue(val) {
     return document.getElementById("text-field").value += val;
@@ -68,3 +64,13 @@ var sevenKeyd = document.getElementById('sevenKey');
 console.log('is working');
 
 console.log('still working');
+
+/* figure out how to delete values that we've placed up in the text field
+1. need a function that executes when button is hit
+2. function needs to reference id of the text field
+3. replace numbers with "" */
+
+function clearValues() {
+    document.getElementById("text-field").value = "";
+}
+
