@@ -45,18 +45,12 @@ function calcAlert(x) {
     document.getElementById("text-field").value += val;
 }*/
 
-
-
-
 const thisField = document.querySelector('.testField');
 
 //accidentally made this log every key that's pressed - crazy
 window.addEventListener('keydown', x => {
     console.log(x);
 })
-
-
-
 
 function showValue(val) {
     return document.getElementById("text-field").value += val;
