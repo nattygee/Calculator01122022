@@ -45,7 +45,7 @@
                     <td><input type="button" value="7" class="num-btn" onclick="showValue('7')" id="sevenKey"></td>
                     <td><input type="button" value="8" class="num-btn" onclick="showValue('8')" id="eightKey"></td>
                     <td><input type="button" value="9" class="num-btn" onclick="showValue('9')" id="nineKey"></td>
-                    <td><input type="button" value="*" class="function-btn"></td>
+                    <td><input type="button" value="*" class="function-btn" onclick="multiplyValue()" id="multiplyBtn"></td>
                 </tr>
                 
                 <!--row 3-->
@@ -53,22 +53,22 @@
                     <td><input type="button" value="4" class="num-btn" onclick="showValue('4')" id="fourKey"></td>
                     <td><input type="button" value="5" class="num-btn" onclick="showValue('5')" id="fiveKey"></td>
                     <td><input type="button" value="6" class="num-btn" onclick="showValue('6')" id="sixKey"></td>
-                    <td><input type="button" value="–" class="function-btn"></td>
+                    <td><input type="button" value="–" class="function-btn" onclick="subtractValue()" id="subtractBtn"></td>
                 </tr>
                 
                 <!--row 4-->
                 <tr>
                     <td><input type="button" value="1" class="num-btn" onclick="showValue('1')" id="oneKey"></td>
-                    <td><input type="button" value="2" class="num-btn" onclick="showValue('2')" id="oneKey"></td>
+                    <td><input type="button" value="2" class="num-btn" onclick="showValue('2')" id="twoKey"></td>
                     <td><input type="button" value="3" class="num-btn" onclick="showValue('3')" id="threeKey"></td>
-                    <td rowspan="2"><input type="button" value="=" class="function-btn-lrg"></td>
-                    <!--<td><input type="button" value="+" class="function-btn"></td>-->
+                    <td><input type="button" value="+" class="function-btn" onclick="addValue()" id="additionBtn"></td>
                 </tr>
                 
-                <!--row 4-->
+                <!--row 5-->
                 <tr>
-                    <td colspan="2"><input type="button" value="0" class="num-btn-med"></td>
+                    <td ><input type="button" value="0" class="num-btn-med" onclick="showValue('0')" id="zeroKey"></td>
                     <td><input type="button" value="." class="num-btn"></td>
+                    <td colspan="2" rowspan="1"><input type="button" value="=" class="function-btn-lrg" onclick="calculateNums()" id="equalsBtn"></td>
                     
                 </tr>
 
