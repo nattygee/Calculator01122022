@@ -1,5 +1,6 @@
 var numPress = document.getElementById("seven-key");
 var operator;
+var savedNums = [];
 
 const keyBoardPress = document.querySelector('.num-screen');
 
@@ -41,25 +42,14 @@ function clicksy(e) {
         document.getElementById("additionBtn").click();
     } else if (e.key === "*") {
         document.getElementById("multiplyBtn").click();
+    } else if (e.key === "/") {
+        document.getElementById("divisionBtn").click();
     }
 }
 
-/*keyBoardPress.addEventListener('keydown' {
-    console.log('hellur')
-});
-
-function showAlert(e) {
-    if (e.keyCode === 50) {
-        alert('oh no, no ' + e.key)
-    }
-}*/
 function calcAlert(x) {
     alert('hello this is a calc' + x);
 }
-
-/*function showValue (val) {
-    document.getElementById("text-field").value += val;
-}*/
 
 const thisField = document.querySelector('.testField');
 
@@ -68,11 +58,12 @@ window.addEventListener('keydown', x => {
     console.log(x);
 })
 
+//this makes the text-field values compound as you press keys
 function showValue(val) {
     return document.getElementById("text-field").value += val;
 }
 
-var sevenKeyd = document.getElementById('sevenKey');
+//var sevenKeyd = document.getElementById('sevenKey');
 
 
 console.log('is working');
@@ -91,7 +82,7 @@ function clearValues() {
 }
 
 //rigging subtract functionality - 'add' functionality can be added after i include an addition button lol
-var savedNums = [];
+//🟢 set different functions here for the different math operations. They each are used to push the previously typed number (before the operator is selected) to the array 'savedNums[]'. each function has a different value for the 'operator' variable, so that we can reference the correct function in the equals func
 
 function subtractValue() {
     savedNums.push(document.getElementById('text-field').value);
@@ -112,9 +103,17 @@ function multiplyValue() {
     document.getElementById('text-field').value = "";
     console.log(savedNums);
     operator = "*";
-    //calculateNums();
+}
+function divideValue() {
+    savedNums.push(document.getElementById('text-field').value);
+    document.getElementById('text-field').value = "";
+    console.log(savedNums);
+    operator = "÷";
 }
 
+// this is the function for calculating two numbers and producing the resulting value in the 'text-field' input. Each conditional has the same syntax except for the math operator in the 'displayNum' variable, and the value in the 'operator' variable
+//there is a NaN thrown with equals if you hit it back to back in the middle of an operation - thinking a) how can i repeat the operation like a normal calc, b) how can i make it do nothing? a is the better ux
+// for when i come back --> add a conditional for each operator, add variable to reference for back-to-back equals - push num to array ex. newNum. --> use 'text-field'.value [operator-/+*] newNum[0]. --> on clearValue set newNum = []; 
 function calculateNums() {
     if (operator === "-") {
         let displayNum = savedNums[0] - document.getElementById('text-field').value;
