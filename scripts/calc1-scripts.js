@@ -44,6 +44,8 @@ function clicksy(e) {
         document.getElementById("multiplyBtn").click();
     } else if (e.key === "/") {
         document.getElementById("divisionBtn").click();
+    } else if (e.key === ".") {
+        document.getElementById("periodBtn").click();
     }
 }
 
