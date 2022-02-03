@@ -174,11 +174,18 @@ p {
     background-image: linear-gradient(rgb(24, 24, 24), rgb(31, 31, 31));
     //background-color: rgb(27, 27, 27);
     color: coral;
+    text-shadow: 0px 0px 10px rgba(216, 137, 109, 0.4);
     padding: 1em .5em;
     border-radius: .5em .5em 0em 0em ;
     font-size: 1.25em;
     text-align: right;
     font-weight: lighter;
+}
+
+// ---------- getting rid of the styling on the placeholder text
+
+.num-screen::placeholder {
+    text-shadow: none;
 }
 
 .num-btn {
