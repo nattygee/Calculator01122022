@@ -46,6 +46,8 @@ function clicksy(e) {
         document.getElementById("divisionBtn").click();
     } else if (e.key === ".") {
         document.getElementById("periodBtn").click();
+    } else if (e.key === "%") {
+        document.getElementById("percentageBtn").click();
     }
 }
 
@@ -56,6 +58,7 @@ function calcAlert(x) {
 const thisField = document.querySelector('.testField');
 
 //accidentally made this log every key that's pressed - crazy
+//this is pretty helpful for finding out the 'key' values of each keyboard key/variation
 window.addEventListener('keydown', x => {
     console.log(x);
 })
@@ -143,5 +146,12 @@ function calculateNums() {
 
 //minus button rigged to minus key('-') and equals button rigged to enter key('Enter') (EDIT: realized that i do that up above with all the other keyboard rigging if/else)
 
-//making 
+//turning numbers into percentage values for the dummies (multiply by 0.01)
+function calculatePerc() {
+    let calcVal = document.getElementById('text-field').value;
+    let calculatedPerc = calcVal * 0.01;
+    return document.getElementById('text-field').value = calculatedPerc;
+}
+
+// note that I'm not [yet] addressing weird functionality after the intial operations are completed. Ex. hitting percentage button more than once should result in nothing i think? but it just repeats (i wish the equals sign did that lol)
 
