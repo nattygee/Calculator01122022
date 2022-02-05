@@ -197,3 +197,14 @@ function calculatePerc() {
 
 // note that I'm not [yet] addressing weird functionality after the intial operations are completed. Ex. hitting percentage button more than once should result in nothing i think? but it just repeats (i wish the equals sign did that lol)
 
+// ---------------------------------- rigging plus/minus button. Hopefully simple replace value with '-'+value
+
+function plusMinusFunc() {
+    //let fieldValue1 = document.getElementById('text-field').value;
+    if (document.getElementById('text-field').value.includes('-') === false) {
+        document.getElementById('text-field').value = '-' + document.getElementById('text-field').value;
+    } else {
+        document.getElementById('text-field').value = document.getElementById('text-field').value.slice(1);
+    }
+}
+
