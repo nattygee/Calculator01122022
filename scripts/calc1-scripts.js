@@ -174,6 +174,7 @@ function calculateNums() {
         //division operator
             //initial equals operation
     } else if (operator === "÷" && savedNumsRepeats.length === 0) {
+        savedNumsRepeats.push(document.getElementById('text-field').value)
         let displayNum = savedNums[0] / document.getElementById('text-field').value;
         document.getElementById('text-field').value = displayNum;
         console.log(displayNum);
@@ -181,7 +182,7 @@ function calculateNums() {
     }   // if there's multiple equals operations subsequently
     else if (operator === "÷" && savedNumsRepeats.length >= 1) {
         let repeatDivide = document.getElementById('text-field').value / savedNumsRepeats[0];
-        fieldValue = repeatDivide;
+        document.getElementById('text-field').value = repeatDivide;
         console.log("okay, you're done. Go to bed");
     }
 }
