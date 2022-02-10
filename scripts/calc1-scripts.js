@@ -6,6 +6,11 @@ var fieldValue = document.getElementById('text-field');
 
 const keyBoardPress = document.querySelector('.num-screen');
 
+//this makes the text-field values compound as you press keys
+function showValue(val) {
+    return document.getElementById("text-field").value += val;
+}
+
 //const textField = document.getElementById("text-field");
 
 //applying new found learning from the test file
@@ -44,10 +49,10 @@ function clicksy(e) {
         document.getElementById("additionBtn").click();
     } else if (e.key === "*") {
         document.getElementById("multiplyBtn").click();
-    } else if (e.key === "/") {
-        document.getElementById("divisionBtn").click();
     } else if (e.key === ".") {
         document.getElementById("periodBtn").click();
+    } else if (e.key === "/") {
+        document.getElementById("divisionBtn").click();
     } else if (e.key === "%") {
         document.getElementById("percentageBtn").click();
     }
@@ -65,10 +70,7 @@ window.addEventListener('keydown', x => {
     console.log(x);
 })
 
-//this makes the text-field values compound as you press keys
-function showValue(val) {
-    return document.getElementById("text-field").value += val;
-}
+
 
 //var sevenKeyd = document.getElementById('sevenKey');
 
@@ -206,6 +208,19 @@ function plusMinusFunc() {
         document.getElementById('text-field').value = '-' + document.getElementById('text-field').value;
     } else {
         document.getElementById('text-field').value = document.getElementById('text-field').value.slice(1);
+    }
+}
+
+// ---------------------------------- fixing '.' button so it only returns one single '.'
+// i forgot that the clicksy() func above was specifically for keyboard shortcuts
+
+function fixPeriod() {
+    let textField = document.getElementById('text-field');
+    if (textField.value.includes('.') === false) {
+        //document.getElementById('periodBtn').click();
+        showValue('.');
+    } else if (textField.value.includes('.') === true) {
+        return null;
     }
 }
 
