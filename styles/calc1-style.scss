@@ -121,6 +121,7 @@ p {
     input {
         border-bottom: 8px solid rgba($color: black, $alpha: .3);
         border-right: 2px solid rgba($color: black, $alpha: .3);
+        
         //box-shadow: x, y, blur, spread 
         box-shadow: 0px 2px 4px 1px rgba($color: #000000, $alpha: .1);
     }
@@ -160,22 +161,36 @@ p {
 
 .num-screen-container {
     display: flex;
-    flex: auto;
+    flex-direction:column;
+}
+
+.num-screen-mini {
+    height: auto;
+    margin-bottom: 0px;
+    border: none;
+    border-right: 1px solid #555555;
+    background-image: linear-gradient(rgb(31, 31, 31), rgb(31, 31, 31));
+    //background-color: rgb(27, 27, 27);
+    color:  grey;
+    text-shadow: 0px 0px 5px rgba(208, 208, 208, 0.3);
+    padding: 1em 1.5em;
+    //border-radius: .5em .5em 0em 0em ;
+    font-size: .5em;
+    text-align: right;
+    font-weight: lighter;
 }
 
 .num-screen {
-    display: flex;
-    flex: auto;
-    width: 100%;
     height: auto;
-    //margin-bottom: .25em;
-    border: none;
+    border-bottom: 0px;
+    margin-bottom: -.1rem;
+    //border: none;
     border-right: 1px solid #555555;
     background-image: linear-gradient(rgb(24, 24, 24), rgb(31, 31, 31));
     //background-color: rgb(27, 27, 27);
     color: coral;
     text-shadow: 0px 0px 10px rgba(216, 137, 109, 0.4);
-    padding: 1em .5em;
+    padding: 1em .5em 0em 0em;
     border-radius: .5em .5em 0em 0em ;
     font-size: 1.25em;
     text-align: right;
