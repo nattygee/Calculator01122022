@@ -86,6 +86,7 @@ console.log('still working');
 
 function clearValues() {
     document.getElementById("text-field").value = "";
+    //document.getElementById("text-field-mini").value = "";
     savedNums = [];
     savedNumsRepeats = [];
     operator = null;
@@ -98,6 +99,24 @@ function subtractValue() {
     savedNums.push(document.getElementById('text-field').value);
     //this function should allow the text in the field to be replaced entirely after a function button is hit and numbers are pressed (as opposed to just being erased to create space)
     document.getElementById('text-field').value = "";
+    //four 'if' statements below are to figure out what operator is active - they repeat for each operation function lol there has to be a better way to do this... in time young pad
+
+    if (savedNums.length > 1 && operator === "-") {
+        let calc = savedNums[savedNums.length - 2] - savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "+") {
+        calc = Number(savedNums[savedNums.length - 2]) + Number(savedNums[savedNums.length - 1]);
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "*") {
+        calc = savedNums[savedNums.length - 2] * savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "÷") {
+        calc = savedNums[savedNums.length - 2] / savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    }
+    
+    //trying to show value of previous operations compounded in the 'text-field-mini' component:
+    //document.getElementById('text-field-mini').value = savedNums[savedNums.length - 1] + ' - ';
     console.log(savedNums);
     savedNumsRepeats = [];
     operator = "-";
@@ -106,6 +125,19 @@ function subtractValue() {
 function addValue() {
     savedNums.push(document.getElementById('text-field').value);
     document.getElementById('text-field').value = "";
+    if (savedNums.length > 1 && operator === "+") {
+        let calc = Number(savedNums[savedNums.length - 2]) + Number(savedNums[savedNums.length - 1]);
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "-") {
+        let calc = savedNums[savedNums.length - 2] - savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "*") {
+        calc = savedNums[savedNums.length - 2] * savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "÷") {
+        calc = savedNums[savedNums.length - 2] / savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    }
     console.log(savedNums);
     savedNumsRepeats = [];
     operator = "+";
@@ -113,6 +145,19 @@ function addValue() {
 function multiplyValue() {
     savedNums.push(document.getElementById('text-field').value);
     document.getElementById('text-field').value = "";
+    if (savedNums.length > 1 && operator === "*") {
+        let calc = savedNums[savedNums.length - 2] * savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "+") {
+        let calc = Number(savedNums[savedNums.length - 2]) + Number(savedNums[savedNums.length - 1]);
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "-") {
+        let calc = savedNums[savedNums.length - 2] - savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "÷") {
+        calc = savedNums[savedNums.length - 2] / savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    }
     console.log(savedNums);
     savedNumsRepeats = [];
     operator = "*";
@@ -120,6 +165,19 @@ function multiplyValue() {
 function divideValue() {
     savedNums.push(document.getElementById('text-field').value);
     document.getElementById('text-field').value = "";
+    if (savedNums.length > 1 && operator === "÷") {
+        let calc = savedNums[savedNums.length - 2] / savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "*") {
+        let calc = savedNums[savedNums.length - 2] * savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "+") {
+        let calc = Number(savedNums[savedNums.length - 2]) + Number(savedNums[savedNums.length - 1]);
+        savedNums.push(calc);
+    } else if (savedNums.length > 1 && operator === "-") {
+        let calc = savedNums[savedNums.length - 2] - savedNums[savedNums.length - 1];
+        savedNums.push(calc);
+    }
     console.log(savedNums);
     savedNumsRepeats = [];
     operator = "÷";
@@ -133,8 +191,10 @@ function calculateNums() {
         //initial equals function for subtract
     if (operator === "-" && savedNumsRepeats.length === 0) {
         savedNumsRepeats.push(document.getElementById('text-field').value);
-        let displayNum = savedNums[0] - document.getElementById('text-field').value;
+        let displayNum = savedNums[savedNums.length - 1] - document.getElementById('text-field').value;
         document.getElementById('text-field').value = displayNum;
+        //text-field-mini value (below)
+        //document.getElementById('text-field-mini').value += ' - ' + savedNum[savedNum.length - 2];
         console.log(displayNum);
         console.log('this works');
         savedNums = [];
@@ -149,7 +209,7 @@ function calculateNums() {
     } else if (operator === "+" && savedNumsRepeats.length === 0) {
         savedNumsRepeats.push(document.getElementById('text-field').value);
         //note i'm using the Number() method? constructor(?) here because otherwise they would just concatenate
-        let displayNum = Number(savedNums[0]) + Number(document.getElementById('text-field').value);
+        let displayNum = Number(savedNums[savedNums.length - 1]) + Number(document.getElementById('text-field').value);
         document.getElementById('text-field').value = displayNum;
         console.log(displayNum);
         savedNums = [];
@@ -163,7 +223,7 @@ function calculateNums() {
             //initial equals
     } else if (operator === "*" && savedNumsRepeats.length === 0) {
         savedNumsRepeats.push(document.getElementById('text-field').value)
-        let displayNum = savedNums[0] * document.getElementById('text-field').value;
+        let displayNum = savedNums[savedNums.length - 1] * document.getElementById('text-field').value;
         document.getElementById('text-field').value = displayNum;
         console.log(displayNum);
         savedNums = [];
@@ -177,7 +237,7 @@ function calculateNums() {
             //initial equals operation
     } else if (operator === "÷" && savedNumsRepeats.length === 0) {
         savedNumsRepeats.push(document.getElementById('text-field').value)
-        let displayNum = savedNums[0] / document.getElementById('text-field').value;
+        let displayNum = savedNums[savedNums.length - 1] / document.getElementById('text-field').value;
         document.getElementById('text-field').value = displayNum;
         console.log(displayNum);
         savedNums = [];
@@ -224,3 +284,4 @@ function fixPeriod() {
     }
 }
 
+// ---------------------------------- adding numbers that are saved to 'savedNums' and 'savedNumsRepeats'to 'text-field-mini'
